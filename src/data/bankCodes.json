@@ -1,0 +1,2 @@
+// This file has been replaced by bankCodes.ts
+// Please use: import { bankCodesData } from './bankCodes';
