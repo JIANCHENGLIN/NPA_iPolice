@@ -1,21 +1,8 @@
-import { useState } from 'react';
 import { Shield, Car } from 'lucide-react';
 import { useNavigation } from '../contexts/NavigationContext';
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-} from './ui/alert-dialog';
 
 export function EmergencyServices() {
   const { navigateTo } = useNavigation();
-  const [dialogOpen, setDialogOpen] = useState(false);
-  const [selectedPhone, setSelectedPhone] = useState('');
   
   const emergencyButtons = [
     { number: '110', label: '報案專線', phone: '110' },
@@ -33,9 +20,8 @@ export function EmergencyServices() {
     setDialogOpen(true);
   };
 
-  const handleConfirmCall = () => {
-    window.location.href = `tel:${selectedPhone}`;
-    setDialogOpen(false);
+  const handleEmergencyClick = (phone: string) => {
+    window.location.href = `tel:${phone}`;
   };
 
   return (
@@ -79,22 +65,3 @@ export function EmergencyServices() {
           );
         })}
       </div>
-      
-      {/* 確認對話框 */}
-      <AlertDialog open={dialogOpen} onOpenChange={setDialogOpen}>
-        <AlertDialogContent className="w-[320px]">
-          <AlertDialogHeader>
-            <AlertDialogTitle>撥打緊急電話</AlertDialogTitle>
-            <AlertDialogDescription>
-              請問要撥打 {selectedPhone} 嗎？
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel>取消</AlertDialogCancel>
-            <AlertDialogAction onClick={handleConfirmCall}>確定</AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
-    </div>
-  );
-}
