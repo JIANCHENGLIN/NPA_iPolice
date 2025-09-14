@@ -16,11 +16,6 @@ export function EmergencyServices() {
   ];
 
   const handleEmergencyClick = (phone: string) => {
-    setSelectedPhone(phone);
-    setDialogOpen(true);
-  };
-
-  const handleEmergencyClick = (phone: string) => {
     window.location.href = `tel:${phone}`;
   };
 
@@ -65,3 +60,5 @@ export function EmergencyServices() {
           );
         })}
       </div>
+    </div>  {/* 補上這個關閉標籤 */}
+  );
