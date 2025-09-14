@@ -201,3 +201,23 @@ html {
     display: none;
   }
 }
+
+/* 日期選擇器圖標樣式 */
+@layer base {
+  /* Webkit browsers (Chrome, Safari, Edge) */
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 1;
+    cursor: pointer;
+    filter: brightness(0) saturate(100%) invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
+    background-image: none;
+    width: 20px;
+    height: 20px;
+  }
+  
+  /* Firefox */
+  input[type="date"]::-moz-calendar-picker-indicator {
+    opacity: 1;
+    cursor: pointer;
+    filter: brightness(0) saturate(100%) invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
+  }
+}
